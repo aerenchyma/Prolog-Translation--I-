@@ -1,0 +1,116 @@
+
+README:
+
+In order to use the program at all, load the file <code>translation3L.pl</code> into Prolog. 
+
+Code is commented and includes info at start; this is a fuller explanation. 
+
+File is named for translation between 3 languages - at least, currently. All listing here will be in English, since it functioned as our metalanguage.
+
+
+THINGS TO KNOW:
+
+E = a list of English words (e.g. of the form [butch,loves,mia])
+F = a list of French words (e.g. of the form [butch,adore,mia])
+T = a list of Turkish words (e.g. of the form [butch,miayi,seviyor])
+
+WORDS AVAILABLE (currently):
+
+Intransitive verbs:
+to dance
+to walk
+to talk
+
+Transitive verbs:
+to eat
+to love
+to know
+to read
+
+Nouns:
+book
+joke
+man 
+radio
+restaurant
+woman
+cat
+bread
+cup
+picture
+magazine
+lamp
+person 
+
+Proper nouns & pronouns:
+butch
+jimmy
+jody
+jules
+lance
+marvin
+mia
+pumpkin
+vincent
+
+(null subject – for Turkish)
+i
+you
+he
+she
+we
+you_pl (for use in Turkish and French)
+they (both gender options for French will appear upon translation)
+
+Determiners:
+
+every (chaque in French, giving either the stronger reading or slightly incorrect grammar, depending)
+a (indefinite)
+
+
+
+FURTHER USE:
+
+In order to translate from an English sentence to French and Turkish, use the predicate
+<code>translate_all_e(E,F,T)</code>. for E, input a list of English words in a sentential order  you wish to translate. 
+
+To translate from a French sentence to English and Turkish, use the predicate 
+<code>translate_all_f(F,E,T)</code>; for F, input a list a French words in a sentential order you wish to translate.
+
+To translate from a Turkish sentence to English and French, use the predicate 
+<code>translate_all_t(T,E,F)</code>; for T, input a list of Turkish words in a sentential order you wish to translate.
+
+When we say "to English and French," for instance, in that last example, we mean exactly that: the translations will appear in that order, so it may be most useful to input the variables E and T, so as not to get confused (not that Turkish is terribly similar to English in appearance or anything). Et cetera, for the other situations.
+
+In order to generate all possible sentences and their translations in all three languages (though this is a very long list), use any of the above translate_all predicates with three variables.
+
+Smaller operations can be performed within loading of <code>translation3L.pl</code>, as well – translations between any two of the languages in any direction (see the translation3L.pl file for the commented code to show which predicates to use to do so). 
+
+And if you wish to get either the sentence in a certain language from given semantics, or to get the semantics of a given sentence, in any of the three languages, input either the semantics for Sem or a list of words in a (hopefully? Or else Prolog will return false) sentential order for S.
+
+English:
+<code>lambda:t([sem:Sem],S,[]).</code>
+
+French:
+<code>lambda2:fr_t([sem:Sem],S,[]).</code>
+
+Turkish:
+<code>lambda4:tur_t([sem:Sem],S,[]).</code>
+
+
+
+
+CURRENT ISSUES:
+
+The program can translate between all the words listed in the above tables. As we have not yet encoded some things, including reflexivity and case in French, there are some translations which can occur in a slightly incorrect fashion. Elision of vowels is also not currently handled.
+
+Case, to the extent it is required for the sentences we can translate is encoded in the Turkish. Thus Turkish subjects included in our databse appear with the accusative case endings as appropriate. The null subject possibility is also encoded in the Turkish files.
+
+
+FURTHER APPLICATION:
+
+Though the translations in this program are limited as described above, this could provide a helpful testing tool for beginning language learning or very simple translation checking among French, Turkish, and English, especially with inclusion of additional Prolog databases. Also possible in future would be relative clauses and tense, and the individual language specificities similar to the Turkish null subject.
+
+Further languages may be added.
+
+Currently at work on an extension of some of this translation work with an language generation bot agent written in Python.
