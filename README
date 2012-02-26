@@ -1,7 +1,6 @@
-
 README:
 
-In order to use the program at all, load the file <code>translation3L.pl</code> into Prolog. 
+In order to use the program at all, load the file translation3L.pl into Prolog. 
 
 Code is commented and includes info at start; this is a fuller explanation. 
 
@@ -72,13 +71,13 @@ a (indefinite)
 FURTHER USE:
 
 In order to translate from an English sentence to French and Turkish, use the predicate
-<code>translate_all_e(E,F,T)</code>. for E, input a list of English words in a sentential order  you wish to translate. 
+translate_all_e(E,F,T). for E, input a list of English words in a sentential order you wish to translate. 
 
 To translate from a French sentence to English and Turkish, use the predicate 
-<code>translate_all_f(F,E,T)</code>; for F, input a list a French words in a sentential order you wish to translate.
+translate_all_f(F,E,T); for F, input a list a French words in a sentential order you wish to translate.
 
 To translate from a Turkish sentence to English and French, use the predicate 
-<code>translate_all_t(T,E,F)</code>; for T, input a list of Turkish words in a sentential order you wish to translate.
+translate_all_t(T,E,F); for T, input a list of Turkish words in a sentential order you wish to translate.
 
 When we say "to English and French," for instance, in that last example, we mean exactly that: the translations will appear in that order, so it may be most useful to input the variables E and T, so as not to get confused (not that Turkish is terribly similar to English in appearance or anything). Et cetera, for the other situations.
 
@@ -89,13 +88,13 @@ Smaller operations can be performed within loading of <code>translation3L.pl</co
 And if you wish to get either the sentence in a certain language from given semantics, or to get the semantics of a given sentence, in any of the three languages, input either the semantics for Sem or a list of words in a (hopefully? Or else Prolog will return false) sentential order for S.
 
 English:
-<code>lambda:t([sem:Sem],S,[]).</code>
+lambda:t([sem:Sem],S,[]).
 
 French:
-<code>lambda2:fr_t([sem:Sem],S,[]).</code>
+lambda2:fr_t([sem:Sem],S,[]).
 
 Turkish:
-<code>lambda4:tur_t([sem:Sem],S,[]).</code>
+lambda4:tur_t([sem:Sem],S,[]).
 
 
 
